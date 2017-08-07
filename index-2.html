@@ -13,17 +13,17 @@
   <ul id="b"></ul>
 <script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script type="text/Javascript">
-  jQuery('ul#a li')
-    .click(function() {
-      alert('List Item Clicked')
+  jQuery('ul#a li') // select the li's within the ul with an id of 'a'
+    .click(function() { // add a click event to each li in the selection
+      alert('List Item Clicked') // alert this when clicked
     })
-    .parent()
-      .clone(true)
-        .find('li')
-        .appendTo('#b')
-      .end()
-    .end()
-    .remove();
+    .parent() // select the parent of the current selection (li's) which is the ul with an id of 'a'
+      .clone(true) // clone the ul and its children. also clone the events by passing true as a parameter.
+        .find('li') // select the li's in the newly cloned ul
+        .appendTo('#b') // add to the ul with an id of b
+      .end() // return to the previous selection which was the cloned ul
+    .end() // return to the previous selection which was the original ul with an id of 'a'
+    .remove(); //remove the original ul
 </script>
 </body>
 </html>
